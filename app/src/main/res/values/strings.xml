@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">IntentsPersistenceHigherOrder</string>
+    <string name="add_student">Add Student</string>
+    <string name="add_pet">Add pet</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_semester">Semester</string>
+    <string name="action_delete_pet">Delete Pet</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_share_pet">Share my pet</string>
 </resources>

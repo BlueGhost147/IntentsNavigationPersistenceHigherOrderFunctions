@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IntentsPersistenceHigherOrder</string>
+    <string name="add_student">Student hinzufuegen</string>
+    <string name="add_pet">Haustier hinzufuegen</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_semester">Semester</string>
+    <string name="action_delete_pet">Haustier loeschen</string>
+    <string name="action_yes">Ja</string>
+    <string name="action_no">Nein</string>
+    <string name="action_share_pet">Haustier teilen</string>
+</resources>

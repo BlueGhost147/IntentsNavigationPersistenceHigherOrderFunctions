@@ -50,18 +50,18 @@ class PetListActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_SEND)
                 intent.putExtra(Intent.EXTRA_TEXT, it.name)
                 intent.type = "text/plain"
-                val chooserIntent = Intent.createChooser(intent, "Share my pet")
+                val chooserIntent = Intent.createChooser(intent, getString(R.string.action_share_pet))
                 startActivity(chooserIntent)
             },
             {
                 val dialogBuilder = AlertDialog.Builder(this)
-                dialogBuilder.setTitle("Delete Pet")
+                dialogBuilder.setTitle(getString(R.string.action_delete_pet))
                 dialogBuilder.setMessage("Are you sure you want to delete the Pet ${it.name}?")
-                dialogBuilder.setPositiveButton("Yes") { _, _ ->
+                dialogBuilder.setPositiveButton(getString(R.string.action_yes)) { _, _ ->
                     db.petDao.delete(it)
                     petAdapter.updateList(db.petDao.findStudentsAndPets(student.id).pets)
                 }
-                dialogBuilder.setNegativeButton("No", null)
+                dialogBuilder.setNegativeButton(getString(R.string.action_no), null)
                 dialogBuilder.show()
                 true
             }
