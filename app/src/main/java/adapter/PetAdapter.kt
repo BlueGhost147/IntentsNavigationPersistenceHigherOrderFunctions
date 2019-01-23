@@ -8,7 +8,7 @@ import at.fh.swengb.intentspersistencehigherorder.R
 import beans.Pet
 import kotlinx.android.synthetic.main.item_pet.view.*
 
-class PetAdapter(val longclick : ((pet : Pet) -> Boolean)): RecyclerView.Adapter<PetViewHolder>() {
+class PetAdapter(val onclick : ((pet : Pet) -> Unit),val longclick : ((pet : Pet) -> Boolean)): RecyclerView.Adapter<PetViewHolder>() {
     var petList = listOf<Pet>()
 
     fun updateList(newList: List<Pet>) {
@@ -19,7 +19,7 @@ class PetAdapter(val longclick : ((pet : Pet) -> Boolean)): RecyclerView.Adapter
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): PetViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val petItemView = inflater.inflate(R.layout.item_pet, parent, false)
-        return PetViewHolder(petItemView,longclick)
+        return PetViewHolder(petItemView,onclick, longclick)
     }
 
     override fun getItemCount(): Int {
@@ -32,9 +32,10 @@ class PetAdapter(val longclick : ((pet : Pet) -> Boolean)): RecyclerView.Adapter
     }
 }
 
-class PetViewHolder(myView: View, val longclick : ((pet : Pet) -> Boolean)): RecyclerView.ViewHolder(myView) {
+class PetViewHolder(myView: View, val onclick : ((pet : Pet) -> Unit), val longclick : ((pet : Pet) -> Boolean)): RecyclerView.ViewHolder(myView) {
     fun bindItem(pet: Pet) {
         itemView.edit_pet_name.text = pet.name
+        itemView.setOnClickListener { onclick(pet) }
         itemView.setOnLongClickListener { longclick(pet) }
     }
 }

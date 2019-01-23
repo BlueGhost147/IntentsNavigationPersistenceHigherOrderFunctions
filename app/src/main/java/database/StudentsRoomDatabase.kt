@@ -7,7 +7,7 @@ import android.content.Context
 import beans.Pet
 import beans.Student
 
-@Database(entities = [Student::class, Pet::class], version = 3)
+@Database(entities = [Student::class, Pet::class], version = 4)
 abstract class StudentsRoomDatabase : RoomDatabase() {
 
     abstract val studentDao: StudentDao

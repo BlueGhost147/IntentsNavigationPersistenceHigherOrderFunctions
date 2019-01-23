@@ -1,9 +1,6 @@
 package database
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import beans.Pet
 import beans.PetStudent
 import beans.Student
@@ -13,6 +10,9 @@ interface PetDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(pet: Pet): Long
+
+    @Delete
+    fun delete(pet : Pet)
 
     @Query("SELECT * from pets")
     fun selectAllPets(): List<Pet>
